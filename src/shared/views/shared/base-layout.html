@@ -1,0 +1,71 @@
+<div ng-controller="navCtrl as nav">
+    <div class="side-nav_container pure-g" >
+        <a class="brand-logo_container pure-u-1" ui-sref="admin.intro">
+            <img src="" class="brand-logo pure-img">
+        </a>
+        <div class="burger-menu pure-u-1" ng-click="nav.toggleBurgerMenu()">
+            <span class="burger-menu--content">
+                <i class="burger-menu--line line-1"></i>
+                <i class="burger-menu--line line-2"></i>
+                <i class="burger-menu--line line-3"></i>
+            </span>
+        </div>
+        <a class="pure-u-1 current-page-title_container" ng-if="nav.currentPageTitle && !nav.showListingLink">
+            <h3 class="page-title">{{nav.currentPageTitle}}</h3>
+        </a>
+        <a class="pure-u-1 current-page-title_container" ng-if="nav.showListingLink" ui-sref="{{nav.showListingLink.sref}}">
+            <h3 class="page-title">{{nav.showListingLink.title}}</h3>
+        </a>
+        <br />
+        <div class="page-anchors pure-u-1" page-anchors ng-show="nav.currentPageAnchors"></div>
+
+    </div>
+
+    <div class="main-menu_container pure-g" ng-class="{'main-menu_ready': nav.openNav}">
+        <nav id="main-menu" class="pure-u-1">
+            <div class="pure-u-1">
+                <h2 class="main-menu_title">Please choose one of the below options</h2>
+            </div>
+
+            <div class="main-menu_items pure-g">
+                <a class="main-menu_item pure-u-1 pure-u-lg-8-24" ui-sref="app.home" ng-click="nav.toggleBurgerMenu()" ng-show="burgerMenuOpen">
+                    <div class="main-menu_item-content">
+                        <h3 class="main-menu_item-title">Marketing Onboarding</h3>
+                        <p class="main-menu_item-tagline">Help me get started</p>
+                        <p class="main-menu_item-description">Our virtual marketing tour has been designed to introduce you to the marketing resources available to help get you started.</p>
+                    </div>
+                </a>
+                <a class="main-menu_item pure-u-1 pure-u-lg-8-24" ui-sref="app.about" ng-click="nav.toggleBurgerMenu()" ng-show="burgerMenuOpen">
+                    <div class="main-menu_item-content">
+                        <h3 class="main-menu_item-title">Marketing Strategies</h3>
+                        <p class="main-menu_item-tagline">I want to create my marketing plan</p>
+                        <p class="main-menu_item-description">Learn how to leverage specific marketing strategies such as attracting new clients or retaining existing ones. </p>
+                    </div>
+                </a>
+            </div>
+        </nav>
+        <div class="main-menu_close" ng-click="nav.toggleBurgerMenu()">
+            <span class="burger-menu--content cross">
+                <i class="burger-menu--line line-1"></i>
+                <i class="burger-menu--line line-2"></i>
+                <i class="burger-menu--line line-3"></i>
+            </span>
+        </div>
+    </div>
+</div>
+
+<main id="main">
+
+    <div class="login-icon_container" ng-if="main.authSvc.authenticated" ng-class="{'show-login': showLogin}" ng-click="showLogin = showLogin ? false : true">
+        <div class="align-right">
+            <div class="logout-details">
+                <span>Hi {{main.authSvc.displayName}}</span><br />
+                <span class="logout-text" ng-click="main.logoutUser()">Logout</span>
+            </div>
+            <img src="shared/images/icon-logout.png" class="help-icon" />
+        </div>
+    </div>
+
+    <!-- listing and detail view loads here -->
+    <ui-view autoscroll="true"></ui-view>
+</main>

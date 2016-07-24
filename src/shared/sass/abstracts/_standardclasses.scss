@@ -1,0 +1,43 @@
+* {
+  min-height: 0;
+  min-width: 0;
+}
+
+.fit-width {
+  width:100%;
+}
+.fit-height {
+  height: 100%;
+  width:auto;
+}
+.flex-stretch {
+  width:100%;
+  display:block;
+}
+
+.image-hr {
+  min-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+  left: 50%;
+  position: relative;
+  transform: translateX(-50%) translateZ(0);
+  max-width:none;
+  @include respond-to('medium') {
+    min-height: 100%;
+  }
+}
+
+.pad-between {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.text-center {
+  text-align: center;
+}

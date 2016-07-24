@@ -1,0 +1,12 @@
+﻿<div class="pure-g">
+    <div class="login-form_container pure-u-1 pure-u-md-4-5 pure-u-lg-2-5">
+        <h1>Welcome</h1>
+        <p>Test Credentials: guest / guest123</p>
+        <p class="form-error" ng-show="error">{{error}}</p>
+        <form name="loginform" id="login-form" novalidate>
+            <input type="text" required placeholder="username" name="username" ng-model="login.username" />
+            <input type="password" required placeholder="************" name="password" ng-model="login.password" />
+            <button type="submit" ng-required="true" class="btn-login" ng-disabled="!loginform.$valid" ng-click="submitLogin(loginform, login)">Login</button>
+        </form>
+    </div>
+</div>

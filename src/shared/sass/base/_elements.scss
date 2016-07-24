@@ -1,0 +1,449 @@
+.btn {
+  text-align:center;
+  width:100%;
+  min-width:270px;
+  cursor:pointer;
+  transition: all 0.3s ease;
+  margin-top:20px;
+  position: relative;
+  display: block;
+  margin-bottom: 20px;
+  @include respond-to('medium') {
+    width:auto;
+    padding: 0 10px;
+    display:inline-block;
+  }
+  .right-arrow-text {
+    &:after {
+      content: ">";
+      position: relative;
+      margin-left:16px;
+      font-weight: bold;
+    }
+  }
+}
+.btn-outline {
+  height: 60px;
+  line-height:60px;
+  border: 2px solid grey;
+  &:hover {
+    .quick-tip_icon {
+      background: url('../images/quick-tip_icon-active.png') no-repeat;
+    }
+  }
+}
+
+.btn-login {
+  width:100%;
+  display:block;
+  border:2px solid #fff;
+  color:#fff;
+  background:none;
+  padding: 14px 10px;
+  font-weight:bold;
+  &:disabled {
+    border: 2px solid darkgray;
+    color: darkgrey;
+  }
+}
+
+.list-thirds {
+  padding: 20px 30px;
+  margin: 40px 0;
+  .list-item {
+    padding: 0 10px;
+    @include respond-to('large') {
+      padding: 0 40px;
+    }
+  }
+}
+
+.quick-tip {
+  .tip-box {
+    position: absolute;
+    line-height: normal;
+    bottom: 90px;
+    left: 50%;
+    transform: perspective(400px) rotate3d(1, 0, 0, 0deg) translateX(-50%);
+    transform-origin: bottom;
+    font-size: 0.9em;
+    width: 400px;
+    background: grey;
+    padding: 50px;
+    color: #fff;
+    transition: transform 0.3s ease-in, opacity 0.3s ease;
+    &:after {
+      position: absolute;
+      bottom:-15px;
+      left:50%;
+      content:"";
+      width:30px;
+      height:30px;
+      transform: translateX(-50%) rotate(45deg);
+      background:grey;
+    }
+    @include respond-to('medium') {
+      max-width:initial;
+    }
+  }
+  .quick-tip_icon {
+    background: url('../images/quick-tip_icon.png') no-repeat;
+    background-size:cover;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    position: relative;
+    top: 8px;
+    right: 7px;
+    transition: background 0.3s ease;
+  }
+  .tip-box_close-button {
+    position: absolute;
+    right:10px;
+    top:10px;
+    width: 30px;
+    height:30px;
+    font-weight:100;
+    font-size:30px;
+    line-height:30px;
+    transform: scaleX(1.3);
+    opacity:0.8;
+    cursor:pointer;
+  }
+
+  &.tip-visible {
+    background: grey;
+    cursor: default;
+  }
+}
+
+
+
+.download-links {
+  margin:20px 0;
+  padding:0;
+  list-style:none;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size:0.9em;
+  padding-left:0;
+  &.space-above {
+    margin-top:60px;
+  }
+  .download-link {
+    position: relative;
+    margin: 0 0 20px;
+    padding:0 10px 0 30px;
+    display:inline-block;
+    width:100%;
+
+    a {
+      @include removeLinkStyling();
+    }
+    .download-arrow, .attachment-clip {
+      position:absolute;
+      left: 0px;
+      top:50%;
+      transform:translateY(-50%);
+
+    }
+    .download-arrow {
+      height:24px;
+      width:20px;
+      background:url('../images/download-arrow.png') no-repeat;
+      background-position: center;
+      border-bottom: 1px solid #127fbf;
+    }
+    .attachment-clip {
+      height:23px;
+      width:23px;
+      background:url('../images/attachment-clip.png') no-repeat;
+      background-position: center;
+    }
+  }
+  &.split-list {
+    .download-link {
+      @include respond-to('medium') {
+        width:50%;
+      }
+    }
+  }
+  &.no-gap {
+    .download-link {
+      margin: 0 0 5px;
+    }
+  }
+}
+
+.image-text-list {
+  border-collapse:collapse;
+  tr {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .list-image {
+    min-width:200px;
+    padding: 26px 20px;
+  }
+  td {
+    padding: 26px 0;
+  }
+  img {
+    margin:auto;
+  }
+  @include respond-to('mobile-only') {
+    td {
+      display:block;
+    }
+
+  }
+}
+
+
+.checkbox-list {
+  list-style: none;
+  font-weight: 100;
+  padding-left: 40px;
+  li {
+    position: relative;
+    margin-bottom: 20px;
+    &:before {
+      position: absolute;
+      content: "";
+      width:30px;
+      height: 30px;
+      background-image: url('../images/checkbox.png');
+      left:-42px;
+    }
+  }
+}
+
+.btn-plus {
+  height: 30px;
+  width: 30px;
+  background: grey;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+  font-size: 30px;
+  display: inline-block;
+  cursor: pointer;
+  transition: box-shadow 0.15s ease-out, background 0.4s ease;
+  position: relative;
+  margin-left: 30px;
+  top:4px;
+  &:hover {
+    background: lightgray;
+    box-shadow: 2px 2px 1px rgba(0,0,0,0.4);
+    .plus {
+      animation: spin 2s infinite;
+
+    }
+  }
+  .plus {
+    display:block;
+  }
+}
+
+.modal {
+  position: fixed;
+  width:0;
+  height:0;
+  background:grey;
+  z-index: 1000;
+  transition: width 0.4s ease, height 0.4s ease, border-radius 0.4s ease-in;
+  border-radius:50%;
+  overflow-y:auto;
+  .modal-container {
+    width:100%;
+  }
+  .modal-content {
+    font-weight:300;
+    margin: 100px 30px 0 $side-nav_width;
+    opacity:0;
+    transition: opacity 0.3s ease 0.5s;
+    padding: 30px;
+    @include respond-to('xlarge') {
+      max-width:1200px;
+      margin:100px auto;
+      padding-left: $side-nav_width;
+    }
+  }
+  .modal-title {
+    font-size: 1.8em;
+    margin: 10px 0;
+    line-height: 0.9em;
+  }
+  .modal-image_column {
+    top: 200px;
+    opacity: 0;
+    position: relative;
+    transition: all 0.5s ease 0.6s;
+  }
+  .modal-text_column {
+    padding-bottom:40px;
+    @include respond-to('medium') {
+      padding-right: 50px;
+    }
+  }
+  .modal-full_width-column {
+    padding: 30px;
+    background:rgba(255,255,255,0.15);
+    @include respond-to('large') {
+      padding:60px;
+    }
+  }
+  .modal-close_container {
+    right:10px;
+    top:10px;
+    position: absolute;
+    width:100px;
+    height:100px;
+    cursor:pointer;
+    .burger-menu--content.cross .burger-menu--line {
+      background: #fff;
+    }
+  }
+  .download-links {
+    margin-top: 50px;
+  }
+  h3 {
+    margin-top:20px;
+    font-size:1.7em;
+  }
+  h4 {
+    font-size:1.5em;
+  }
+  li {
+    margin-bottom: 15px;
+  }
+}
+
+.modal-open {
+  overflow:hidden;
+  .modal {
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    border-radius:0;
+    .modal-content {
+      opacity:1;
+    }
+    .modal-close_container {
+      position: fixed;
+    }
+  }
+  .modal-image_column {
+    top:0;
+    opacity:1;
+  }
+}
+
+.modal-info_list-item {
+  margin-bottom: 30px;
+  .modal-info_text {
+    width: calc(100% - 80px);
+    display:inline-block;
+    margin:0;
+    padding:0;
+    padding-right: 20px;
+    font-weight:normal;
+  }
+  .modal-btn {
+    margin-left:0;
+    vertical-align: top;
+  }
+}
+
+.block-split {
+  height: 100px;
+  width:4px;
+  background: #fff;
+  margin:auto;
+  display: block;
+}
+
+.help-container {
+  position: absolute;
+  right:20px;
+  top:20px;
+  width:35px;
+  white-space: nowrap;
+  overflow:hidden;
+  cursor:pointer;
+  z-index: 2;
+  transition: width 0.2s ease 0.15s;
+  display:block;
+  a {
+    @include removeLinkStyling();
+  }
+
+  .help-icon {
+    vertical-align: middle;
+  }
+  span {
+    font-size:14px;
+  }
+  &.show-help {
+    width:280px;
+  }
+}
+
+.login-icon_container {
+  left:20px;
+  top:20px;
+  position: absolute;
+  width:35px;
+  min-height:80px;
+  overflow-x:hidden;
+  overflow-y: visible;
+  z-index:9;
+  transition: width 0.3s ease;
+  white-space: nowrap;
+  font-size: 0.8em;
+  cursor:pointer;
+  .align-right {
+    position: absolute;
+    right:0;
+  }
+  .login-icon {
+    vertical-align:middle;
+    display: inline-block;
+    width:35px;
+  }
+  .logout-details {
+    width: 200px;
+    display:inline-block;
+  }
+  span {
+    display: inline-block;
+    white-space: pre;
+    max-width: calc(100% - 35px);
+  }
+  &.show-login {
+    width:270px;
+  }
+  .logout-text {
+    color: grey;
+  }
+}
+
+.iframe-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 8px;
+  height: 0;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border:none;
+  }
+}

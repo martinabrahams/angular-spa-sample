@@ -1,0 +1,76 @@
+@mixin pull($direction) {
+  float: $direction;
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
+}
+
+@mixin center() {
+  transform: translateY(-50%) translateX(-50%) translateZ(0);
+  position: absolute;
+  left:50%;
+  top:50%;
+}
+
+@mixin hcenter() {
+  transform: translateX(-50%) translateZ(0);
+  position: absolute;
+  left:50%;
+}
+
+@mixin vcenter() {
+  transform: translateY(-50%) translateZ(0);
+  position: absolute;
+  top:50%;
+}
+@mixin setProductMax() {
+  max-width:1800px;
+  margin:auto;
+  display:block;
+}
+
+@mixin flex-stretch() {
+  width:100%;
+  display:block;
+}
+
+
+@mixin removeLinkStyling() {
+  text-decoration: none;
+  font-style: normal;
+  color: inherit;
+  &:hover, &:visited {
+    text-decoration: none;
+    font-style: normal;
+    color: inherit;
+  }
+}
+
+
+@mixin center-fit-img() {
+  display: block;
+  width: auto;
+  min-width: 100%;
+  min-height: 100%;
+  left: -9999px;
+  top: -9999px;
+  bottom: -9999px;
+  right: -9999px;
+  position: absolute;
+  margin:auto;
+}
+
+@mixin flexFromBottom() {
+  display:inline-flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+
+@mixin fitBackgroundImage($url) {
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
+}
