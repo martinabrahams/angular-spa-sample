@@ -13,14 +13,30 @@ test_script:
 
 
   - echo %CD%
-  - cmd: dir /src
+  - cmd: dir /b
 
   # run gulp tasks
   - npm run-script gulp-build:dist
-  - cmd: dir /src C:\projects\angular-spa-sample
+  - cmd: dir /b C:\projects\angular-spa-sample
 
   # run tests
   #- npm test
+
+
+# Cache folder to speed up builds
+#cache:
+#  - node_modules -> package.json # preserve "node_modules" directory in the root of build folder but will reset it if package.json is modified
+#  - app/node_modules -> app\package.json
+#  - cache   # nw-builder cache
+#  - '%APPDATA%\npm-cache'   # npm cache
+
+# which git branch to watch
+#branches:
+#  only:
+#    - master
+
+# Do not build on tags (GitHub only)
+#skip_tags: true
 
 # Don't actually build.
 build: off
