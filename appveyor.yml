@@ -6,10 +6,19 @@ install:
   - npm install
 
 # Post-install test scripts.
-#test_script:
+test_script:
   # Output useful info for debugging.
-  #- node --version
-  #- npm --version
+  - node --version
+  - npm --version
+
+
+  - echo %CD%
+  - cmd: dir /src
+
+  # run gulp tasks
+  - npm run-script gulp-build:dist
+  - cmd: dir /src C:\projects\angular-spa-sample
+
   # run tests
   #- npm test
 
