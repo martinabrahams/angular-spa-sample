@@ -110,4 +110,4 @@ gulp.task('connect', function() {
     });
 });
 
-gulp.task('build:dist', ['dist-sass:base', 'dist-js', 'dist-fonts', 'dist-images', 'dist-assets', 'dist-bower-files']);
+gulp.task('dist', ['dist-sass:base', 'dist-js', 'dist-fonts', 'dist-images', 'dist-assets', 'dist-bower-files']);

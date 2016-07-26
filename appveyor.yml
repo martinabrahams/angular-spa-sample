@@ -10,13 +10,14 @@ test_script:
   # Output useful info for debugging.
   - node --version
   - npm --version
-
+  - echo Gulp Version
+  - npm gulp -v
 
   - echo %CD%
   - cmd: dir /b
 
   # run gulp tasks
-  - npm run-script gulp-build:dist
+  - npm run-script gulp-dist
   - cmd: dir /b C:\projects\angular-spa-sample
 
   # run tests
