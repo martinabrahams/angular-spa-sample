@@ -43,7 +43,7 @@ test_script:
 #skip_tags: true
 
 artifacts:
-  - path: dist
+  - path: dist\**\*.*
     name: dist
 
 # Don't actually build.
