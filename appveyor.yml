@@ -28,8 +28,9 @@ test_script:
 
 
 # Cache folder to speed up builds
-#cache:
-#  - node_modules -> package.json # preserve "node_modules" directory in the root of build folder but will reset it if package.json is modified
+cache:
+  - node_modules -> package.json # preserve "node_modules" directory in the root of build folder but will reset it if package.json is modified
+  - bower_components -> bower.json # preserve bower libs
 #  - app/node_modules -> app\package.json
 #  - cache   # nw-builder cache
 #  - '%APPDATA%\npm-cache'   # npm cache
