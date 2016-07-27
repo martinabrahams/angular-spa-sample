@@ -44,7 +44,12 @@ test_script:
 
 artifacts:
   - path: dist\**\*.*
-    name: dist1
+    name: dist
 
 # Don't actually build.
 build: off
+
+# deploy to pre-defined environment in appveyor
+deploy:
+  provider: Environment
+  name: angular-spa-sample-ftp
