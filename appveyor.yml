@@ -42,5 +42,9 @@ test_script:
 # Do not build on tags (GitHub only)
 #skip_tags: true
 
+artifacts:
+  - path: dist
+    name: dist
+
 # Don't actually build.
 build: off
