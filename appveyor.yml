@@ -3,6 +3,7 @@ install:
   # Get the latest stable version of Node.js
   - ps: Install-Product node
   # install modules
+  - npm install -g gulp
   - npm install
 
 # Post-install test scripts.
@@ -11,13 +12,15 @@ test_script:
   - node --version
   - npm --version
   - echo Gulp Version
-  - npm gulp -v
+  - gulp -v
+
 
   - echo %CD%
   - cmd: dir /b
 
   # run gulp tasks
-  - npm run-script gulp-dist
+  #- npm run-script gulp-dist
+  - gulp dist
   - cmd: dir /b C:\projects\angular-spa-sample
 
   # run tests
