@@ -44,7 +44,7 @@ test_script:
 
 artifacts:
   - path: dist\**\*.*
-    name: dist
+    name: dist1
 
 # Don't actually build.
 build: off
