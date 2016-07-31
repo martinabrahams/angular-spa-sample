@@ -52,7 +52,8 @@ cache:
 # Don't actually build.
 build: off
 
-after_build:
+#after_build:
+before_package:
   - ps: $root = Resolve-Path .\dist; [IO.Directory]::GetFiles($root.Path, '*.*', 'AllDirectories') | % { Push-AppveyorArtifact $_ -FileName $_.Substring($root.Path.Length + 1) -DeploymentName to-publish }
 
 # deploy to pre-defined environment in appveyor
