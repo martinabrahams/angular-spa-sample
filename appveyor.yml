@@ -43,12 +43,14 @@ cache:
 # Do not build on tags (GitHub only)
 #skip_tags: true
 
-
+# this doesn't allow us to control the output path
 #artifacts:
 #  - path: dist\**\*.*
 #    name: dist
 
 
+# create artifacts using PowerShell. Usually this would be done during the after_build event, but since this app isn't 
+# being built the event is never fired
 after_test: 
   - ps: $root = Resolve-Path .\dist; [IO.Directory]::GetFiles($root.Path, '*.*', 'AllDirectories') | % { Push-AppveyorArtifact $_ -FileName $_.Substring($root.Path.Length + 1) -DeploymentName to-publish }
 
