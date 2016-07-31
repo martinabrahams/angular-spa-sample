@@ -49,7 +49,7 @@ cache:
 #    name: dist
 
 
-before_build: 
+after_test: 
   - ps: $root = Resolve-Path .\dist; [IO.Directory]::GetFiles($root.Path, '*.*', 'AllDirectories') | % { Push-AppveyorArtifact $_ -FileName $_.Substring($root.Path.Length + 1) -DeploymentName to-publish }
 
 # Don't actually build.
