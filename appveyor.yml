@@ -43,12 +43,17 @@ cache:
 # Do not build on tags (GitHub only)
 #skip_tags: true
 
-artifacts:
-  - path: dist\**\*.*
-    name: dist
+
+#artifacts:
+#  - path: dist\**\*.*
+#    name: dist
+
 
 # Don't actually build.
 build: off
+
+after-build:
+  - ps: $root = Resolve-Path .\dist; [IO.Directory]::GetFiles($root.Path, '*.*', 'AllDirectories') | % { Push-AppveyorArtifact $_ -FileName $_.Substring($root.Path.Length + 1) -DeploymentName to-publish }
 
 # deploy to pre-defined environment in appveyor
 deploy:
